@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Engagement Invitation</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            overflow-x: hidden;
+            color: rgb(255, 255, 255);
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-shadow: 0px 0px 10px rgb(255, 255, 255);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-image: url("https://i.pinimg.com/originals/bd/17/36/bd1736515392d3a209f5c4cfa328ba65.gif");
+        }
+        h1 {
+            color: red;
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-shadow: 0px 0px 10px red;
+            opacity: 0;
+            transform: translateX(-100%);
+            animation: slideIn 1s forwards;
+        }
+        .slide-right {
+            transform: translateX(100%);
+        }
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+        .video-background {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.35);
+            z-index: 0;
+        }
+        .gold-text {
+            color: gold;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-shadow: 0px 0px 10px gold;
+        }
+        .container {
+            position: relative;
+            z-index: 1;
+            margin-top: 80px;
+            flex: 1;
+        }
+        .btn-toggle {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: white;
+            color: black;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background-color: #ffffff;
+            color: red;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #000000;
+        }
+        .btn-danger {
+            background-color: red;
+            border: none;
+            color: #000;
+        }
+        .btn-danger:hover {
+            background-color: #000000;
+        }
+        .btn-map {
+            background-color: rgb(255, 255, 255);
+            color: rgb(255, 0, 0);
+            font-size: 0.9rem;
+            padding: 5px 10px;
+            border: none;
+        }
+        .btn-map:hover {
+            background-color: #222;
+            color: #ffffff;
+        }
+        footer {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px 0;
+            text-align: center;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container">
+        <!-- <video autoplay muted loop class="video-background">
+            <source src="0_Hearts_Red Hearts_3840x2160.mov" type="video/mp4">
+        </video> -->
+        <div class="overlay"></div>
+    </div>
+    
+    <audio autoplay loop>
+        <source src="Marriage-At-2AM-(Background-Score)-MassTamilan.dev.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <div class="container">
+        <h1 class="slide-left">Engagement</h1>
+        <h1 class="slide-right">Invitation</h1>
+        <p class="gold-text">With Love & Joy, We Invite You!
+
+            Two hearts, two families, and a journey of love are coming together as Narasimhan’s Prince & Anand’s Princess embark on their beautiful forever!
+            
+            With immense happiness in our hearts, we invite you to grace the joyous occasion of their Engagement Ceremony with your presence and blessings. Your love and support will make this celebration even more special and memorable.
+            
+            Join us as we witness the beginning of a lifetime filled with love, laughter, and togetherness.</p>
+        <h2>💍 Groom: <b>N. Ajaykrishna </b> <div class="edu"><h5>B.Tech - Chemical , MBA </h5></div></h2>
+        <h2>💍 Bride: <b>A.Selvatharani</b> <div class="edu"><h5>B.E-ECE </h5> </div></h2>
+        <h3>📅 Date: <b>01.05.2025</b></h3>
+        <h3>📍 Venue: <b>Kumarasamy Marriage Hall,Tiruppur</b></h3>
+        <p><a href="https://g.co/kgs/bPAGH9C" class="btn btn-map">View Map Location</a></p>
+       
+        <h3>By the way, which team are you in? ❤️ </h3>
+        <div class="btn-group">
+            <button class="btn btn-primary" onclick="chooseTeam('Groom')">Team Groom</button>
+            <button class="btn btn-danger" onclick="chooseTeam('Bride')">Team Bride</button>
+        </div>
+        <p id="team-response" class="mt-3"></p>
+    </div>
+    
+    <footer>
+        <!-- <button class="btn-toggle" onclick="toggleMusic()">🔊</button> -->
+        <h4>&copy; THE___MK__ </h4>
+    </footer>
+    
+    <script>
+        function chooseTeam(team) {
+            document.getElementById('team-response').innerHTML = " Haha ! Welcomes you to team " + team + "! 🎉";
+        }
+        // function toggleMusic() {
+        //     var music = document.getElementById("bg-music");
+        //     if (music.paused) {
+        //         music.play();
+        //     } else {
+        //         music.pause();
+        //     }
+        // }
+    </script>
+</body>
+</html>
